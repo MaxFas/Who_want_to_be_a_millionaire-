@@ -16,9 +16,10 @@ export const Preview = (props: PreviewPropsType) => {
   const SelectAmountQuestions = (amountQuestions: string) => {
     if (amountQuestions === '0') {
       setZeroQuestions(true)
+    } else {
+      dispatch(setQuestionsTC(amountQuestions))
+      props.setStartGame(true)
     }
-    else {dispatch(setQuestionsTC(amountQuestions))
-      props.setStartGame(true)}
   }
 
   return (
@@ -28,10 +29,18 @@ export const Preview = (props: PreviewPropsType) => {
       <p>How many questions should you ask?</p>
       <div className={styles.functionalPanel}>
         <input className={styles.input} value={amountQuestions}
-               onChange={(e)=>setAmountQuestions(e.currentTarget.value)} type="text"/>
+               onChange={(e) => setAmountQuestions(e.currentTarget.value)}
+               onKeyPress={(e) => {
+                 if (e.key === 'Enter') {
+                   SelectAmountQuestions(amountQuestions)
+                 }
+               }} type="text"/>
         <button className={styles.button}
-                onClick={()=>{SelectAmountQuestions(amountQuestions)}}>OK</button>
-        {!zeroQuestions||<div className={styles.zero}>Please, enter the count of questions</div>}
+                onClick={() => {
+                  SelectAmountQuestions(amountQuestions)
+                }}>OK
+        </button>
+        {!zeroQuestions || <div className={styles.zero}>Please, enter the count of questions</div>}
       </div>
     </div>
   )

@@ -27,7 +27,6 @@ export const Main = (props: MainPropsType) => {
   const questionsData = useSelector<RootStateType, Array<QuestionType>>
   ((state) => state.app.questionsData)
   const questions = questionsData.map(data => data.question)
-  console.log(questionsData)
   //Получение ответов и логика по их случайному расположению
   const answers = questionsData.map(data => {
     const numb = Math.random()
@@ -82,7 +81,11 @@ export const Main = (props: MainPropsType) => {
   if (!questionsData.length) return <Preloader/>
   return (
     <div className={styles.container}>
-      {!win || <div className={styles.win}>YOU WIN</div>}
+      {!win || <div><div className={styles.win}>YOU WIN</div>
+          <div className={styles.again}>
+              <button className={styles.againButton} onClick={
+                ()=>props.setStartGame(false)}>NEW GAME</button>
+          </div></div>}
       {correctAnswer ? '' :
         <ResultFalse setCorrectAnswer={setCorrectAnswer} setStartGame={props.setStartGame}/>}
       <div className={styles.question}>{questions[questionNumber]}</div>

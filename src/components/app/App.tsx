@@ -21,8 +21,4 @@ function App() {
     </div>
   );
 }
-//
-// <div className={styles.again}>
-//   <button className={styles.againButton} onClick={()=>setStartGame(false)}>NEW GAME</button>
-// </div>
 export default App;

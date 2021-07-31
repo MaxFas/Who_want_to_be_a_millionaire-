@@ -41,6 +41,23 @@
     animation: show-win 0.5s forwards;
 }
 
+
+.again{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.againButton {
+    height: 120px;
+    font-size: 20px;
+    border: 2px solid;
+    border-radius: 60px;
+    margin-right: 30px;
+}
+
 @keyframes show-win {
     0% {
         opacity: 0;
