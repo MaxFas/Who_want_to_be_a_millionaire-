@@ -1,0 +1,32 @@
+.container {
+    border: 5px rgba(11,15,255,0.69) solid;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.89)
+}
+
+.functionalPanel{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.button {
+    margin-left: 35px;
+    width: 20%;
+    height: 46px;
+}
+
+.input {
+    font-size: 20px;
+    width: 70%;
+    height: 40px;
+}
+
+.zero {
+    color: #800a0a;
+    font-size: 20px;
+}

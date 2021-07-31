@@ -1,0 +1,28 @@
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    background-color: rgba(0, 39, 187, 0.69);
+    min-width: 100vh;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.again{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.againButton {
+    height: 120px;
+    font-size: 20px;
+    border: 2px solid;
+    border-radius: 60px;
+    margin-right: 30px;
+}
