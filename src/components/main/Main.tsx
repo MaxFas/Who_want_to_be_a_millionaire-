@@ -4,9 +4,9 @@ import audio from "./../../common/audio/winAudio.mp3"
 import audio_1 from "./../../common/audio/lose.mp3"
 import React, {useState} from "react";
 import styles from "./main.module.css"
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../store/store";
-import {QuestionType} from "../../reducers/appReducer";
+import {clearPreviousData, QuestionType} from "../../reducers/appReducer";
 import {Preloader} from "../../common/preloader/Preloader";
 import {ResultFalse} from "../result/ResultFalse";
 
@@ -18,6 +18,7 @@ export const Main = (props: MainPropsType) => {
   const [questionNumber, setQuestionNumber] = useState<number>(0)
   const [correctAnswer, setCorrectAnswer] = useState<boolean>(true)
   const [win, setWin] = useState<boolean>(false)
+  const dispatch = useDispatch()
   let currentAnswers = []
 
   const winAudio = new Audio(audio)
@@ -84,7 +85,10 @@ export const Main = (props: MainPropsType) => {
       {!win || <div><div className={styles.win}>YOU WIN</div>
           <div className={styles.again}>
               <button className={styles.againButton} onClick={
-                ()=>props.setStartGame(false)}>NEW GAME</button>
+                ()=> {
+                  props.setStartGame(false)
+                  dispatch(clearPreviousData())
+                }}>NEW GAME</button>
           </div></div>}
       {correctAnswer ? '' :
         <ResultFalse setCorrectAnswer={setCorrectAnswer} setStartGame={props.setStartGame}/>}
