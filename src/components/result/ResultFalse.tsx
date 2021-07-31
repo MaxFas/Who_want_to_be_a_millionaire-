@@ -1,8 +1,5 @@
 import React from "react";
 import styles from "./resultFalse.module.css"
-import {useSelector} from "react-redux";
-import {RootStateType} from "../../store/store";
-import {QuestionType} from "../../reducers/appReducer";
 
 type ResultPropsType = {
   setStartGame: (isStart: boolean) => void
