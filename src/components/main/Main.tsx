@@ -32,9 +32,9 @@ export const Main = (props: MainPropsType) => {
   const answers = questionsData.map(data => {
     const numb = Math.random()
     // В данном API ответы могут приходить в форме false/true (2 варианта ответа)
-    if(data.incorrect_answers.length === 1|| numb>0.5) {
+    if(data.incorrect_answers.length === 1 && numb>0.5) {
       return [...data.incorrect_answers, data.correct_answer]
-    } else if(data.incorrect_answers.length === 1|| numb<0.5) {
+    } else if(data.incorrect_answers.length === 1 && numb<0.5) {
       return [data.correct_answer, ...data.incorrect_answers]}
       //Обработка ответов, если приходит 4 варианта ответа
       else {
